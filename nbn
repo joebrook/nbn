@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+FILE=/usr/share/dict/american-english
+if test -f "$FILE"; then
+    clear
+    printf "%s$(shuf -n 1 $FILE)$((1 + RANDOM % 999))\n" | sed "s|[',]||g"
+else
+    clear
+    echo -e "\033[1;31m$FILE\033[1;33m doesn't exist! install words and rerun!\033[0m"
+fi
